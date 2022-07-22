@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "492285547475",
+    "project_id": "mynotes-taufiqidr",
+    "storage_bucket": "mynotes-taufiqidr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:492285547475:android:9a74f77a0b45de0949d526",
+        "android_client_info": {
+          "package_name": "us.taufiqidr.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "492285547475-njcocik68c62amshrg8vpj239mvv5ves.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKhssKrBeN9aHYklfTEwM7wnVvMD0EJnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "492285547475-njcocik68c62amshrg8vpj239mvv5ves.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
