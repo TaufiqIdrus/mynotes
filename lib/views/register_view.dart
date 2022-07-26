@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-
 import 'package:mynotes/constants/routes.dart';
 import 'package:mynotes/services/auth/auth_exceptions.dart';
 import 'package:mynotes/services/auth/auth_service.dart';
-import 'package:mynotes/utilities/show_error_dialog.dart';
+import 'package:mynotes/utilities/dialogs/error_dialog.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
 
   @override
-  State<RegisterView> createState() => _RegisterViewState();
+  _RegisterViewState createState() => _RegisterViewState();
 }
 
 class _RegisterViewState extends State<RegisterView> {
@@ -20,7 +19,6 @@ class _RegisterViewState extends State<RegisterView> {
   void initState() {
     _email = TextEditingController();
     _password = TextEditingController();
-
     super.initState();
   }
 
@@ -44,16 +42,18 @@ class _RegisterViewState extends State<RegisterView> {
             enableSuggestions: false,
             autocorrect: false,
             keyboardType: TextInputType.emailAddress,
-            decoration:
-                const InputDecoration(hintText: 'Enter your email here'),
+            decoration: const InputDecoration(
+              hintText: 'Enter your email here',
+            ),
           ),
           TextField(
             controller: _password,
             obscureText: true,
             enableSuggestions: false,
             autocorrect: false,
-            decoration:
-                const InputDecoration(hintText: 'Enter your password here'),
+            decoration: const InputDecoration(
+              hintText: 'Enter your password here',
+            ),
           ),
           TextButton(
             onPressed: () async {
@@ -64,8 +64,6 @@ class _RegisterViewState extends State<RegisterView> {
                   email: email,
                   password: password,
                 );
-
-                AuthService.firebase().currentUser;
                 AuthService.firebase().sendEmailVerification();
                 Navigator.of(context).pushNamed(verifyEmailRoute);
               } on WeakPasswordAuthException {
@@ -81,12 +79,12 @@ class _RegisterViewState extends State<RegisterView> {
               } on InvalidEmailAuthException {
                 await showErrorDialog(
                   context,
-                  'Email is invalid',
+                  'This is an invalid email address',
                 );
               } on GenericAuthException {
                 await showErrorDialog(
                   context,
-                  'failed to register',
+                  'Failed to register',
                 );
               }
             },
@@ -99,7 +97,7 @@ class _RegisterViewState extends State<RegisterView> {
                 (route) => false,
               );
             },
-            child: const Text('Already have an account? Login here!'),
+            child: const Text('Already registered? Login here!'),
           )
         ],
       ),
